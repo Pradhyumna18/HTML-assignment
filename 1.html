@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <script>
+        function validateForm() {
+            var x = document.forms["myForm"]["fname"].value;
+            y = document.forms["myForm"]["branch"].value;
+            z = document.forms["myForm"]["phnno"].value;
+            k = document.forms["myForm"]["country"].value;
+            l = document.forms["myForm"]["gender"].value;
+            m = document.forms["myForm"]["address"].value;
+            pw1 = document.forms["myForm"]["pwd"].value;
+            pw2 = document.forms["myForm"]["cpwd"].value;
+            if (pw1 != pw2)
+                alert("your password and confirm password is not matching");
+            else
+                alert("name: " + x + ",   branch: " + y + ",  phnno: " + z + ",   country: " + k + ",  gender: " + l + ",  address: " + m);
+        }
+    </script>
+</head>
+<style>
+    body{
+        background-color:rgb(235, 235, 223);
+    }
+</style>
+<body>
+
+    <form name="myForm" onsubmit="return validateForm()" >
+        Name: <input type="text" name="fname">&nbsp;
+        Branch: <input type="text" name="branch"><br><br>
+        phn No:<input type="text" name="phnno">&nbsp;
+        Country:<select name="country">
+            <option value="India">India</option>
+            <option value="Iraq">Iraq</option>
+            <option value="Iran">Iran</option>
+            <option value="Israel">Israel</option>
+        </select><br><br>
+        Gender:<input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">female<br><br>
+        Address:<input type="text" name="address"><br><br>
+        
+        Password:<input type="password" name="pwd">&nbsp;
+        confirm Password:<input type="password" name="cpwd"><br><br>
+        
+        <div class="jumbotron text-center">
+        <div class="row">
+            <div class="col-sm-4">
+        <input type="submit" value="Submit">
+        </div>
+    </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
