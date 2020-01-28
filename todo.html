@@ -1,0 +1,140 @@
+
+<html>
+<style>
+    .header {
+  background-color: blue;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+.button {
+  background-color: #4CAF50; 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: red; 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;} 
+.button2 {background-color: yellow; 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;} 
+  ul{
+    background: #ff9999;
+  padding: 20px;
+  }
+  ul li{
+    background: #ffe5e5;
+  padding: 5px;
+  margin-left: 35px;
+  }
+
+
+</style>
+<head>
+    <h2 class="header">TO DO LIST</h2>
+</head>
+<body>
+
+   
+    <form name="myform">
+        <input type="text" name="item" />
+    </form>
+
+    <button class="button" onclick="addItem()">add</button>
+    <button class="button1" onclick="removeItem()">delete</button>
+    <button class="button2" onclick="editItem()">Edit</button>
+    <ul id="myList" style="list-style: none;" class="list-group list-group-horizontal">
+    </ul>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function addItem() {
+            var x = document.forms["myform"]["item"].value;
+            var hold = document.getElementById("myList");
+            var checkbox = document.createElement('input');
+            checkbox.type = "checkbox";
+            checkbox.name = "chkbox1";
+            checkbox.value = x;
+            checkbox.id = "cbid"
+            
+            var label = document.createElement('LI');
+            var tn = document.createTextNode(x);
+            label.htmlFor = "cbid";
+            label.appendChild(tn);
+            hold.appendChild(checkbox);
+            hold.appendChild(label); 
+           
+        }
+        function removeItem() {
+             var element = document.getElementById('myList');
+             var i=element.childElementCount;
+             while(i>0)
+             {
+            if(element.childNodes[i-1].checked)
+            {
+                element.removeChild(element.childNodes[i])
+                element.removeChild(element.childNodes[i-1])
+            }
+            i=i-2;
+             }
+            
+
+        }
+        function editItem() {
+            var x = document.forms["myform"]["item"].value;
+            var sp1=document.createElement("input");
+            sp1.id="newspan";
+            var textnode = document.createTextNode(x);
+            sp1.appendChild(x);
+            
+            var element = document.getElementById("myList")
+
+            var i=element.childElementCount;
+            while(i>0)
+            {
+            if(element.childNodes[i-1].checked)
+            {
+              
+            var parentDiv=element.parentNode;
+             parentDiv.replaceChild(sp1,element);
+            }
+            i=i-2;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
